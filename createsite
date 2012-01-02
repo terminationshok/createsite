@@ -1,9 +1,10 @@
 #!/bin/bash
 mkdir /var/www/$1
-touch /var/log/apache/$1_error.log
-touch /var/log/apache/$1_access.log
-chown www-data:users /var/log/apache/$1_error.log /var/log/apache/$1_access.log /var/www/$1 -R
-chmod 775 /var/log/apache/$1_error.log /var/log/apache/$1_access.log /var/www/$1 -R
+mkdir /var/log/apache2 -p
+touch /var/log/apache2/$1_error.log
+touch /var/log/apache2/$1_access.log
+chown www-data:users /var/log/apache2/$1_error.log /var/log/apache2/$1_access.log /var/www/$1 -R
+chmod 775 /var/log/apache2/$1_error.log /var/log/apache2/$1_access.log /var/www/$1 -R
 sed s/templatevar/$1/ /root/bin/template.apache>/etc/apache2/sites-available/$1
 a2ensite $1
 

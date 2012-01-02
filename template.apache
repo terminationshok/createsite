@@ -4,8 +4,8 @@
 
         DocumentRoot /var/www/templatevar
 
-        ErrorLog /var/log/apache/templatevar_error.log
-        CustomLog /var/log/apache/templatevar_access.log "combined"
+        ErrorLog /var/log/apache2/templatevar_error.log
+        CustomLog /var/log/apache2/templatevar_access.log "combined"
 
         DirectoryIndex index.html index.htm index.php index.php4 index.php5
 
