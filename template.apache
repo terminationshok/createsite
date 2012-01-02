@@ -1,0 +1,28 @@
+<VirtualHost *:80>
+        ServerName templatevar
+        ServerAlias www.templatevar
+
+        DocumentRoot /var/www/templatevar
+
+        ErrorLog /var/log/apache/templatevar_error.log
+        CustomLog /var/log/apache/templatevar_access.log "combined"
+
+        DirectoryIndex index.html index.htm index.php index.php4 index.php5
+
+        <Directory /var/www/templatevar>
+                Options -Indexes +IncludesNOEXEC +FollowSymLinks +ExecCGI
+                allow from all
+                AllowOverride All
+                #AddHandler fcgid-script .php
+                #AddHandler fcgid-script .php5
+                #FCGIWrapper /var/www/templatevar/fcgi-bin/php5.fcgi .php
+                #FCGIWrapper /var/www/templatevar/fcgi-bin/php5.fcgi .php5
+        </Directory>
+
+        <Directory /var/www/templatevar/cgi-bin>
+                allow from all
+        </Directory>
+
+        RewriteEngine on
+        LogLevel debug
+</VirtualHost>
